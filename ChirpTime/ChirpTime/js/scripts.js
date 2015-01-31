@@ -42,6 +42,28 @@ displaychirp = function () {
     }
 }
 
+
+function deleteChirp(itemIndexClicked) {
+    var currChirp = chirps[itemIndexClicked];
+    currEditId = currChirp.id;
+
+    var customUrl = "https://chirptime.firebaseio.com/" + currEditId + ".json";
+
+    var myrequest = new XMLHttpRequest();
+    myrequest.open("DELETE", customUrl, true);
+    myrequest.onload = function () {
+        if (this.status >= 200 && this.status < 400) { // success
+            var firebaseData = JSON.parse(this.response);
+            console.log("DELETE was a success", firebaseData);
+            
+        } else { 
+            console.log("there was a problem");
+        }
+    };
+    myrequest.send(); 
+
+}
+
 /* ID Names - Inputs
  * Post yor chirp = chirps-input
  * Post Button = post-button
