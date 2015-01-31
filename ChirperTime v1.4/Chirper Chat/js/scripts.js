@@ -39,7 +39,10 @@ function postChirps() {
 
 };
 
-
+//Remove Friend <p>
+function removeFriendRow(index) {
+    $("#friend-render" + index).remove();
+}
 
 
 
@@ -105,6 +108,55 @@ var retrieveChirps = function () {
 //retrieveChirps();
 //retrieveChirps();
 
+//Delete Friends AJAX CALL//
+function deleteFriend(itemIndexClicked) {
+    var currFriend = people[itemIndexClicked];
+    currEditId = currFriend.id;
+
+    var customUrl = "https://chirptime.firebaseio.com/friends/" + currEditId + "/.json";
+
+    var myrequest = new XMLHttpRequest();
+    myrequest.open("DELETE", customUrl, true);
+    myrequest.onload = function () {
+        if (this.status >= 200 && this.status < 400) {
+            var firebaseData = JSON.parse(this.response);
+            console.log("DELETE was a success", firebaseData);
+            removeFriendRow(currEditId);
+            retrieveFriends();
+        } else {
+            console.log("there was a problem");
+        }
+    };
+    myrequest.send();
+
+};
+
+
+//Delete Chirps AJAX CALL//
+function deleteChirp(itemIndexClicked) {
+    var currChirp = chirps[itemIndexClicked];
+    currEditId = currChirp.id;
+
+    var customUrl = "https://chirptime.firebaseio.com/chirps/" + currEditId + "/.json";
+
+    var myrequest = new XMLHttpRequest();
+    myrequest.open("DELETE", customUrl, true);
+    myrequest.onload = function () {
+        if (this.status >= 200 && this.status < 400) {
+            var firebaseData = JSON.parse(this.response);
+            console.log("DELETE was a success", firebaseData);
+            removeFriendRow(currEditId);
+            retrieveChirps();
+        } else {
+            console.log("there was a problem");
+        }
+    };
+    myrequest.send();
+
+};
+
+
+
 //Render Content to Screen(Friends)//
 displayPerson = function () {
 
@@ -121,7 +173,7 @@ displayPerson = function () {
         $("#friend-render").append("<p class='text-center'>" + tempObj.name + "</p>");
         $("#friend-render").append("<p class='text-center'>" + tempObj.username + "</p>");;
         $("#friend-render").append("<p class='text-center'>" + tempObj.city + "</p>");
-        $("#friend-render").append("<a href='#'><i class='glyphicon glyphicon-trash' onclick=' " + i + "'></i></a><hr>")
+        $("#friend-render").append("<a href='#'><i class='glyphicon glyphicon-trash' onclick='deleteFriend(" + i + ")'></i></a><hr>")
     }
 };
 
@@ -139,9 +191,9 @@ displayChirps = function () {
 
         chirps.push(newChirp);
 
-        $("#chirp-display").append("<p><strong><h4>" + tempTwt.username + "</h4></strong></p>")
+        $("#chirp-display").append("<p><strong><h4><a href='#' onclick='(" + i + ")'>" + tempTwt.username + "</a></h4></strong></p>")
         $("#chirp-display").append("<p><em><h4 class='chirpP'>" + tempTwt.chirps + "</h4></em></p>")
-        $("#chirp-display").append("<p><h6>" + tempTwt.date + "</h6></p><hr>")
+        $("#chirp-display").append("<p><h6>" + tempTwt.date + "</h6><a href='#'><i class='glyphicon glyphicon-trash pull-right' onclick='deleteChirp(" + i + ")'></i></a></p></br><hr>")
     }
 }
 
@@ -154,7 +206,6 @@ displayChirps = function () {
  * Chirp Display DIV = chirp-display
  * Edit Pencil =
  */
-
 
 
 
