@@ -197,6 +197,16 @@ displayChirps = function () {
     }
 }
 
+
+function chirpDiff() {
+    var currChirps = chirps.length;
+    retrieveChirps(arg);
+
+    var newChirps = chirps.length;
+    var counter = (newChirps - currChirps);
+    $("#newChirps").val();
+}
+
 /* ID Names - Inputs
  * Post yor chirp = chirps-input
  * Post Button = post-button
