@@ -1,0 +1,9 @@
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\ChirpTime\ChirpTime\bin\ChirpTime.dll.config
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\ChirpTime\ChirpTime\bin\ChirpTime.dll
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\ChirpTime\ChirpTime\bin\ChirpTime.pdb
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\ChirpTime\ChirpTime\bin\ChirpTime.xml
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\ChirpTime\ChirpTime\obj\Debug\ChirpTime.Resources.resources
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\ChirpTime\ChirpTime\obj\Debug\ChirpTime.vbproj.GenerateResource.Cache
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\ChirpTime\ChirpTime\obj\Debug\ChirpTime.dll
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\ChirpTime\ChirpTime\obj\Debug\ChirpTime.xml
+C:\Users\Christopher\Documents\Visual Studio 2013\Projects\ChirpTime\ChirpTime\obj\Debug\ChirpTime.pdb
